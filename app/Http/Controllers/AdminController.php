@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Picture;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -24,5 +25,10 @@ class AdminController extends Controller
         return view('admin.editUser' , compact('user'));
     }
 
-    
+    public function editPost(Post $post)
+    {
+        // dd($post);
+        $pictures = Picture::where('post_id', $post->id)->get();
+        return view('admin.editPost',compact('post','pictures'));
+    }
 }
