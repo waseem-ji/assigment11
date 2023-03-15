@@ -19,6 +19,7 @@
 
                 <a href="/admin/{{$user->id}}/editUser" class="btn btn-warning">Edit</a>
                 <a href="" class="btn btn-danger"> Delete</a>
+               
             </li>
         @endforeach
         <div class="mt-3 mx-2">

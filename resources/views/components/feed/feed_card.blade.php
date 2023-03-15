@@ -25,7 +25,6 @@
 
 
                   </form>
-                {{-- <a class="dropdown-item text-danger fw-bold" href="#">Delete</a> --}}
               </li>
             </ul>
 

@@ -31,4 +31,12 @@ class AdminController extends Controller
         $pictures = Picture::where('post_id', $post->id)->get();
         return view('admin.editPost',compact('post','pictures'));
     }
+
+    public function deletePost(Post $post)
+    {
+        $post->delete();
+        return back()->with('success', 'post Deleted');
+    }
+
+   
 }
