@@ -8,7 +8,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Users</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Total Active Users</h6>
-                            <p class="card-text display-4"> {{ $users_count }} </p>
+                            <p class="card-text display-4 mx-2"> {{ $users_count }} </p>
                             <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#allUsers" data-bs-parent="#panel-controller" aria-expanded="false"
                                 aria-controls="allUsers">
@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Posts</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Total Posts on site</h6>
-                            <p class="card-text display-4">{{ $posts_count }} </p>
+                            <p class="card-text display-4 mx-2">{{ $posts_count }} </p>
                             {{-- <a href="#" class="card-link text-decoration-none">View all posts</a> --}}
                             <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#allPosts" data-bs-parent="#panel-controller" aria-expanded="false"
@@ -44,7 +44,7 @@
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Admin Panel</h1>
                 </div>
-                <div id="panel-controller">
+                <div id="panel-controller" class="mx-5">
                     <div class="collapse" id="allPosts" data-bs-parent="#panel-controller">
                         <x-admin.posts :posts=$posts />
 

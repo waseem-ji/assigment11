@@ -67,7 +67,8 @@ Route::middleware('auth')->group(function() {
     
     Route::middleware('can:admin')->group( function() {
         Route::get('/admin',[AdminController::class,'index']);
-        Route::get('/admin/{user}/edit',[AdminController::class,'editUser']);
+        Route::get('/admin/{user}/editUser',[AdminController::class,'editUser']);
+        Route::get('/admin/{post}/editPost',[AdminController::class,'editPost']);
     });
 });
 

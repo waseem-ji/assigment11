@@ -20,8 +20,9 @@ class AdminController extends Controller
 
     public function editUser(User $user)
     {
-        $posts_count = Post::count();
-        $users_count = User::count();
-        return view('admin.editUser' , compact('posts_count' , 'users_count' ,'user'));
+        // dd($user);
+        return view('admin.editUser' , compact('user'));
     }
+
+    
 }

@@ -15,9 +15,9 @@
                     </div>
                     
                 </div>
-                <div class="fs-4 fw-lighter">   {{count($user->posts)}}  Posts</div>
+                <div class="fs-5 fw-lighter">   {{count($user->posts)}}  Posts</div>
 
-                <a href="/admin/{{$user->id}}/edit" class="btn btn-warning">Edit</a>
+                <a href="/admin/{{$user->id}}/editUser" class="btn btn-warning">Edit</a>
                 <a href="" class="btn btn-danger"> Delete</a>
             </li>
         @endforeach

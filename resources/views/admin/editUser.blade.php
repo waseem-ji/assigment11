@@ -19,13 +19,14 @@
      
    
                 </div>
+                <a href="/admin" class="text-decoration-none">Go back to admin panel</a>
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Admin Panel</h1>
+                    <a href="/admin" class="h2 text-decoration-none">Admin Panel</a>
                 </div>
                 {{-- <div id="panel-controller">
                     <div class="collapse" id="allPosts" data-bs-parent="#panel-controller">
@@ -49,7 +50,7 @@
                              <div class="row mb-3">
                                  <div class="col">
                                      <label for="name" class="form-label">Name</label>
-                                     <input type="text" name="name" class="form-control" id="name"  value="{{auth()->user()->name}} ">
+                                     <input type="text" name="name" class="form-control" id="name"  value="{{$user->name}} ">
                      
                      
                                  @error('name')
@@ -65,7 +66,7 @@
                              <div class="row mb-3">
                                  <div class="col">
                                      <label for="email" class="form-label">Email</label>
-                                     <input type="email" name="email" class="form-control" id="email" value="{{auth()->user()->email}}">
+                                     <input type="email" name="email" class="form-control" id="email" value="{{$user->email}}">
                      
                      
                                  @error('email')
@@ -79,7 +80,7 @@
                              <div class="row mb-3">
                                  <div class="col">
                                      <label for="date" class="form-label">Date of Birth</label>
-                                     <input type="date" name="dob" class="form-control" id="date"  value="{{auth()->user()->dob ?? "" }}">
+                                     <input type="date" name="dob" class="form-control" id="date"  value="{{$user->dob ?? "" }}">
                      
                      
                                  @error('dob')
@@ -92,7 +93,7 @@
                              </div>
                                  <div class="col">
                                      <label for="text" class="form-label">Phone Number</label>
-                                     <input type="text" name="phone" class="form-control" id="phone" value="{{auth()->user()->phone ?? "" }}" >
+                                     <input type="text" name="phone" class="form-control" id="phone" value="{{$user->phone ?? "" }}" >
                      
                      
                                  @error('phone')
@@ -108,9 +109,9 @@
                                          <fieldset>
                                               <legend class="fs-5">Gender</legend>
                      
-                                              <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="female" {{auth()->user()->gender==='female' ? 'checked' : "" }}>
+                                              <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="female" {{$user->gender==='female' ? 'checked' : "" }}>
                                               <label class="form-check-label" for="inlineRadio1">Female</label>
-                                              <input class="form-check-input ms-2" type="radio" name="gender" id="inlineRadio1" value="male" {{auth()->user()->gender==='male' ? 'checked' : "" }}>
+                                              <input class="form-check-input ms-2" type="radio" name="gender" id="inlineRadio1" value="male" {{$user->gender==='male' ? 'checked' : "" }}>
                                               <label class="form-check-label" for="inlineRadio1">Male</label>
                                           </fieldset>
                      

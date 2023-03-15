@@ -10,14 +10,18 @@
                     <div>
                         <p></p>
                         <h6 class="mb-0">{{ $post->title }}</h6>
-                        <p class="mb-0 opacity-75">{{ $post->user['name'] }}</p>
+                        <p class="mb-0 opacity-75">By {{ $post->user['name'] }}</p>
                     </div>
     
                 </div>
-                <div class="my-auto ">
+                <div class="d-flex flex-row-reverse w-25 gap-3 mx-3 align-items-center">
+                    <div class="">
+                        <a href="#"  class="btn btn-danger" > Delete</a>
 
-                    <a class="btn btn-warning">Edit</a>
-                    <a href="/settings"  class="btn btn-danger" > Delete</a>
+                    </div>
+                    <div class="">
+                        <a href="/admin/{{$post->id}}/editPost" class="btn btn-warning">Edit</a>
+                    </div>
                 </div>
             </li>
         @endforeach
