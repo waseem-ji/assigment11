@@ -1,4 +1,4 @@
-{{-- @props('posts') --}}
+
 
 <div class="list-group w-auto" id="adminPosts">
     <div class="p-4 border shadow rounded-3">
@@ -15,7 +15,7 @@
                     </div>
     
                 </div>
-                <button class="btn btn-warning">Editt</button>
+                <button class="btn btn-warning">Edit</button>
                 <button class="btn btn-danger"> Delete</button>
             </a>
         @endforeach

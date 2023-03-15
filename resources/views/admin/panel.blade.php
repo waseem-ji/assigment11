@@ -8,7 +8,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Users</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Total Active Users</h6>
-                            <p class="card-text display-4"> 56</p>
+                            <p class="card-text display-4"> {{$users_count}} </p>
                             <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#allUsers" data-bs-parent="#panel-controller" aria-expanded="false"
                                 aria-controls="allUsers">
@@ -53,7 +53,7 @@
 
 
                     <div class="collapse" id="allUsers" data-bs-parent="#panel-controller">
-                        all users are diplayed here
+                        <x-admin.users :users=$users />
                     </div>
 
                 </div>
@@ -70,6 +70,7 @@
             event.preventDefault();
 
             $('#adminPosts').load(url + ' #adminPosts');
+            $('#adminUsers').load(url + ' #adminUsers');
             
 
         }
