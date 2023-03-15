@@ -9,7 +9,11 @@
                             <h5 class="card-title">Users</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Total Active Users</h6>
                             <p class="card-text display-4"> 56</p>
-                            <a href="#" class="card-link text-decoration-none">View all users</a>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#allUsers" data-bs-parent="#panel-controller" aria-expanded="false"
+                                aria-controls="allUsers">
+                                View All Users
+                            </button>
 
                         </div>
                     </div>
@@ -21,8 +25,13 @@
                         <div class="card-body">
                             <h5 class="card-title">Posts</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Total Posts on site</h6>
-                            <p class="card-text display-4">12345</p>
-                            <a href="#" class="card-link text-decoration-none">View all posts</a>
+                            <p class="card-text display-4">{{$posts_count}} </p>
+                            {{-- <a href="#" class="card-link text-decoration-none">View all posts</a> --}}
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#allPosts" data-bs-parent="#panel-controller" aria-expanded="false"
+                                aria-controls="allPosts">
+                                View All Posts
+                            </button>
 
                         </div>
                     </div>
@@ -30,22 +39,39 @@
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="chartjs-size-monitor">
-                    <div class="chartjs-size-monitor-expand">
-                        <div class=""></div>
-                    </div>
-                    <div class="chartjs-size-monitor-shrink">
-                        <div class=""></div>
-                    </div>
-                </div>
+
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">Admin Panel</h1>
+                </div>
+                <div id="panel-controller">
+                    <div class="collapse" id="allPosts" data-bs-parent="#panel-controller">
+                        <x-admin.posts :posts=$posts />
+
+
+                    </div>
+
+
+                    <div class="collapse" id="allUsers" data-bs-parent="#panel-controller">
+                        all users are diplayed here
+                    </div>
 
                 </div>
+
+
 
 
             </main>
         </div>
     </div>
+    <script>
+
+        function loadNextPage(url) {
+            event.preventDefault();
+
+            $('#adminPosts').load(url + ' #adminPosts');
+            
+
+        }
+    </script>
 </x-layout>

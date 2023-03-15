@@ -12,7 +12,9 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="https://kit.fontawesome.com/9c9eece858.js" crossorigin="anonymous"></script>
-    <script></script>
+
+    <script src="https://unpkg.com/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 
 
@@ -54,7 +56,7 @@
                                 @can('admin')
                                     <li><a class="dropdown-item" href="/admin">Admin</a></li>
                                 @endcan
-                                
+
                                 <li><a class="dropdown-item" href="/feed">Profile</a></li>
                                 <li><a class="dropdown-item" href="/settings">Settings</a></li>
                                 <li>
