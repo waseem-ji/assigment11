@@ -9,6 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
+        // $this->authorize('admin');
         $posts = Post::latest();
 
         if(request('search')){

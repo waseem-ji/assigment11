@@ -28,7 +28,7 @@ class FeedController extends Controller
         $attributes = request()->validate([
             'title' => ['required'],
             'body' => ['required'],
-            'images.*' => [ 'max:5']
+            // 'images.*' => [ 'max:5']
         ]);
 
 

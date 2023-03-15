@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -62,6 +63,11 @@ Route::middleware('auth')->group(function() {
     Route::patch('/feed/{post}',[FeedController::class, 'update']);
     Route::delete('feed/{post}',[FeedController::class, 'destroy']);
 
+    // Admin Panel
+    
+    Route::middleware('can:admin')->group( function() {
+        Route::get('/admin',[AdminController::class,'index']);
+    });
 });
 
 
