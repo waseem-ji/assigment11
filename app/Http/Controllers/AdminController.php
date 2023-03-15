@@ -17,4 +17,11 @@ class AdminController extends Controller
         $users= User::paginate(3);
         return view('admin.panel', compact('posts', 'posts_count', 'users_count' , 'users'));
     }
+
+    public function editUser(User $user)
+    {
+        $posts_count = Post::count();
+        $users_count = User::count();
+        return view('admin.editUser' , compact('posts_count' , 'users_count' ,'user'));
+    }
 }

@@ -8,7 +8,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Users</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Total Active Users</h6>
-                            <p class="card-text display-4"> {{$users_count}} </p>
+                            <p class="card-text display-4"> {{ $users_count }} </p>
                             <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#allUsers" data-bs-parent="#panel-controller" aria-expanded="false"
                                 aria-controls="allUsers">
@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Posts</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Total Posts on site</h6>
-                            <p class="card-text display-4">{{$posts_count}} </p>
+                            <p class="card-text display-4">{{ $posts_count }} </p>
                             {{-- <a href="#" class="card-link text-decoration-none">View all posts</a> --}}
                             <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#allPosts" data-bs-parent="#panel-controller" aria-expanded="false"
@@ -56,6 +56,12 @@
                         <x-admin.users :users=$users />
                     </div>
 
+           
+                </div>
+                <div class="">
+
+                    
+                    
                 </div>
 
 
@@ -65,13 +71,12 @@
         </div>
     </div>
     <script>
-
         function loadNextPage(url) {
             event.preventDefault();
 
             $('#adminPosts').load(url + ' #adminPosts');
             $('#adminUsers').load(url + ' #adminUsers');
-            
+
 
         }
     </script>
