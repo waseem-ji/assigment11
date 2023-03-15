@@ -18,8 +18,22 @@
                 <div class="fs-5 fw-lighter">   {{count($user->posts)}}  Posts</div>
 
                 <a href="/admin/{{$user->id}}/editUser" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger"> Delete</a>
-               
+                {{-- <a href="" class="btn btn-danger"> Delete</a> --}}
+                <div class="">
+                    <form class="dropdown-item text-center" action="/admin/{{$user->id}}/deleteUser"
+                        method="post">
+                        @csrf
+                        @method('DELETE')
+
+
+                        <button type="submit"
+                            onclick="return confirm('Are you sure you want to delete this item?');"
+                            class="btn btn-danger fw-bold w-100 text-decoration-none ">Delete</button>
+
+
+
+                    </form>
+                </div>
             </li>
         @endforeach
         <div class="mt-3 mx-2">
