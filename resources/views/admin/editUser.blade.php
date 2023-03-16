@@ -44,9 +44,9 @@
                 <div class="px-5 py-3">
                     <div class="border border-light-subtle rounded-4 shadow-sm mt-3 p-4 mb-5">
                         <div class="container">
-                         <form action="{{route('update-profile')}}" method="POST" enctype="multipart/form-data">
+                         <form action="/admin/{{$user->id}}/updateUser" method="POST" enctype="multipart/form-data">
                              @csrf
-                             @method('PUT')
+                             @method('PATCH')
                              <div class="row mb-3">
                                  <div class="col">
                                      <label for="name" class="form-label">Name</label>

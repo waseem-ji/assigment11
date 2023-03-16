@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -17,13 +18,42 @@ class AdminController extends Controller
 
         $users_count = User::count();
         $users= User::paginate(3);
-        return view('admin.panel', compact('posts', 'posts_count', 'users_count' , 'users'));
+        return view('admin.panel', compact('posts', 'posts_count', 'users_count', 'users'));
     }
 
     public function editUser(User $user)
     {
-        // dd($user);
-        return view('admin.editUser' , compact('user'));
+        return view('admin.editUser', compact('user'));
+    }
+
+
+    public function updateUser(User $user)
+    {
+        $attributes = request()->validate([
+            'dob' => ['required','date'],
+            'phone' => ['required','digits:10', 'numeric'],
+            'name' => ['required'],
+            'gender' => ['required'],
+            'email' => ['required','email',  Rule::unique('users')->ignore($user->id)],
+        ]);
+
+
+
+        if (request()->hasFile('profile_pic')) {
+            $image = request()->file('profile_pic');
+
+
+
+            $filename = $image->store('public/images/profile');
+
+            $attributes['profile_pic'] = substr($filename, 7);
+            $user->update($attributes);
+        } else {
+            $user->update($attributes);
+        }
+
+
+        return redirect('/admin')->with('success', 'successfully Updated');
     }
 
 
@@ -33,7 +63,7 @@ class AdminController extends Controller
     {
         // dd($post);
         $pictures = Picture::where('post_id', $post->id)->get();
-        return view('admin.editPost',compact('post','pictures'));
+        return view('admin.editPost', compact('post', 'pictures'));
     }
 
     public function updatePost(Post $post)

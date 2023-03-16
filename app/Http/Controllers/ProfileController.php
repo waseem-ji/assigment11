@@ -27,31 +27,26 @@ class ProfileController extends Controller
         ]);
 
 
-        // dd(request());
-        if(request()->hasFile('profile_pic')) {
-            // dd(request());
+
+        if (request()->hasFile('profile_pic')) {
             $image = request()->file('profile_pic');
 
 
 
-                $filename = $image->store('public/images/profile');
+            $filename = $image->store('public/images/profile');
 
-                $attributes['profile_pic'] = substr($filename,7);
-                $user->update($attributes);
-
-        }
-        else {
+            $attributes['profile_pic'] = substr($filename, 7);
+            $user->update($attributes);
+        } else {
             $user->update($attributes);
         }
 
 
-        return redirect('/settings')->with('success','successfully Updated');
-
+        return redirect('/settings')->with('success', 'successfully Updated');
     }
 
     public function changePassword()
     {
-
         $user = auth()->user();
 
         $attributes = request()->validate([
@@ -64,9 +59,9 @@ class ProfileController extends Controller
         //     return back()->with("error", "Old Password Doesn't match!");
         // }
 
-         #Update the new Password
-         $user->update([
-            'password' => $attributes['password']
+        #Update the new Password
+        $user->update([
+           'password' => $attributes['password']
         ]);
 
         return back()->with("status", "Password changed successfully!");
