@@ -16,7 +16,7 @@
                     <div class="">
 
 
-                        <form class="dropdown-item text-center" action="admin/{{ $post->id }}/delete"
+                        <form class="dropdown-item text-center" action="admin/{{ $post->id }}/deletePost"
                             method="post">
                             @csrf
                             @method('DELETE')

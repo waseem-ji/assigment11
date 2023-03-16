@@ -71,7 +71,9 @@ Route::middleware('auth')->group(function() {
         Route::delete('/admin/{user}/deleteUser',[AdminController::class,'deleteUser']);
 
         Route::get('/admin/{post}/editPost',[AdminController::class,'editPost']);
+        Route::patch('/admin/{post}/updatePost',[AdminController::class,'updatePost']);
         Route::delete('/admin/{post}/deletePost',[AdminController::class,'deletePost']);
+        Route::patch('/admin/{post}/deletePostPicture',[AdminController::class,'deletePostPicture']);
         
     });
 });

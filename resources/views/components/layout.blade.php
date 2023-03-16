@@ -57,7 +57,7 @@
                                     <li><a class="dropdown-item" href="/admin">Admin</a></li>
                                 @endcan
 
-                                <li><a class="dropdown-item" href="/feed">Profile</a></li>
+                                <li><a class="dropdown-item" href="/feed">My feed</a></li>
                                 <li><a class="dropdown-item" href="/settings">Settings</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
