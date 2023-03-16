@@ -11,14 +11,25 @@ use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function viewPostPanel()
     {
         $posts_count = Post::count();
         $posts = Post::paginate(5);
 
         $users_count = User::count();
+
+        // return view('admin.panel', compact('posts', 'posts_count', 'users_count', 'users'));
+        return view('admin.postPanel', compact('posts', 'posts_count', 'users_count'));
+    }
+    public function viewUserPanel()
+    {
+        $posts_count = Post::count();
+
+
+        $users_count = User::count();
         $users= User::paginate(3);
-        return view('admin.panel', compact('posts', 'posts_count', 'users_count', 'users'));
+        // return view('admin.panel', compact('posts', 'posts_count', 'users_count', 'users'));
+        return view('admin.UserPanel', compact('posts_count', 'users_count', 'users'));
     }
 
     public function editUser(User $user)
@@ -53,7 +64,7 @@ class AdminController extends Controller
         }
 
 
-        return redirect('/admin')->with('success', 'successfully Updated');
+        return back()->with('success', 'successfully Updated');
     }
 
 
@@ -104,7 +115,7 @@ class AdminController extends Controller
     public function deletePost(Post $post)
     {
         $post->delete();
-        return redirect('/admin');
+        return back();
     }
 
     public function deletePostPicture(Post $post)
@@ -125,8 +136,9 @@ class AdminController extends Controller
 
     public function deleteUser(User $user)
     {
+        
         $user->delete();
-        // return back()->with('success', 'User Deleted');
-        return redirect('/admin');
+        return back();
+
     }
 }

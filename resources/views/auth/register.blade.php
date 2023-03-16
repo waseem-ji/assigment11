@@ -8,7 +8,6 @@
                     </div>
                     <form action="/register" method="POST">
                         @csrf
-
                         <div class="p-4">
                             <div class="input-group mb-3">
                                 <span class="input-group-text bg-light"><i

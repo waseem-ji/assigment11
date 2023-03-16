@@ -7,11 +7,11 @@
                     <div class="card mt-5 mb-5">
                         <div class="card-body">
 
-                            <h5 class="card-title">By {{ $post->user->name }}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"></h6>
+                            <h5 class="card-title mb-3 text-center">{{ Str::ucfirst($post->user->name)}}</h5>
+                            
                             <img src="{{ asset($post->user->profile_pic ?? asset('images/profile/dummy.jpg')) }}"
                                 alt="twbs" width="202" height="202" class="rounded-5 flex-shrink-0">
-                            <p class="card-text display-4 mt-5 ">{{ count($post->user->posts) }} Posts</p>
+                            <p class="card-text fw-semibold text-center mt-5 ">{{ count($post->user->posts) }} Posts</p>
 
 
                         </div>
@@ -68,28 +68,17 @@
                             @enderror
                         </div>
 
-                        <div class="row">
-                            <div class="flex justify-end col-1">
-                                {{-- image upload  --}}
-                                <button type="submit" class="btn btn-primary btn-block mb-4">Update </button>
+             
+                        <div class="d-flex flex-row-reverse">
+                            <button type="submit" class="btn btn-primary btn-block mb-4">Update </button>
+                            <div class=" mx-3">
+
+                                <a href="/admin" class="text-decoration-none btn btn-success">Cancel</a>
                             </div>
+
+                        </div>
                     </form>
-                    <div class="col-1">
-                        <form class="dropdown-item text-center" action="/admin/{{ $post->id }}/deletePost"
-                            method="post">
-                            @csrf
-                            @method('DELETE')
 
-
-                            <button type="submit"
-                                onclick="return confirm('Are you sure you want to delete this item?');"
-                                class="btn btn-danger fw-bold w-100 text-decoration-none ">Delete</button>
-
-
-
-                        </form>
-
-                    </div>
 
 
                 </div>

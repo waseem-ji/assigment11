@@ -16,7 +16,7 @@
                     </div>
 
                 </div>
-                <a href="/admin" class="text-decoration-none">Go back to admin panel</a>
+                <a href="/admin/users" class="text-decoration-none">Go back to admin panel</a>
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -25,19 +25,6 @@
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <a href="/admin" class="h2 text-decoration-none">Admin Panel</a>
                 </div>
-                {{-- <div id="panel-controller">
-                    <div class="collapse" id="allPosts" data-bs-parent="#panel-controller">
-                        <x-admin.posts :posts=$posts />
-
-
-                    </div>
-
-
-                    <div class="collapse" id="allUsers" data-bs-parent="#panel-controller">
-                        <x-admin.users :users=$users />
-                    </div>
-
-                </div> --}}
                 <div class="px-5 py-3">
                     <div class="border border-light-subtle rounded-4 shadow-sm mt-3 p-4 mb-5">
                         <div class="container">
@@ -144,16 +131,7 @@
 
                                         </div>
                                         <div class="">
-                                            <form class="text-center mx-3" action="/admin/{{ $user->id }}/deleteUser"
-                                                method="post">
-                                                @csrf
-                                                @method('DELETE')
-                    
-                                                <button type="submit"
-                                                    onclick="return confirm('Are you sure you want to delete this User?');"
-                                                    class="btn btn-danger fw-bold text-decoration-none ">Delete User</button>
-                    
-                                            </form>
+                                    
 
                                         </div>
 

@@ -66,7 +66,8 @@ Route::middleware('auth')->group(function() {
     // Admin Panel
     
     Route::middleware('can:admin')->group( function() {
-        Route::get('/admin',[AdminController::class,'index']);
+        Route::get('/admin',[AdminController::class,'viewPostPanel']);
+        Route::get('/admin/users',[AdminController::class,'viewUserPanel']);
         Route::get('/admin/{user}/editUser',[AdminController::class,'editUser']);
         Route::patch('/admin/{user}/updateUser',[AdminController::class,'updateUser']);
         Route::delete('/admin/{user}/deleteUser',[AdminController::class,'deleteUser']);
@@ -75,6 +76,8 @@ Route::middleware('auth')->group(function() {
         Route::patch('/admin/{post}/updatePost',[AdminController::class,'updatePost']);
         Route::delete('/admin/{post}/deletePost',[AdminController::class,'deletePost']);
         Route::patch('/admin/{post}/deletePostPicture',[AdminController::class,'deletePostPicture']);
+
+        // Route::view('/postPanel', 'admin.postPanel');
         
     });
 });

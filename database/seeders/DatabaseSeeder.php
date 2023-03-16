@@ -17,12 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' =>'waseemji',
-            'email' => 'waseemji4217@gmail.com',
-            'password' => 'waseemji',
+        // User::create([
+        //     'name' =>'waseemji',
+        //     'email' => 'waseemji4217@gmail.com',
+        //     'password' => 'waseemji',
 
-        ]);
+        // ]);
         $user = User::factory(5)->create();
 
         for ($i=0; $i < 5; $i++) {
