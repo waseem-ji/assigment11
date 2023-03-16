@@ -55,7 +55,7 @@ class FeedController extends Controller
         }
         $post->save();
 
-        return redirect('/feed');
+        return redirect('/feed')->with('success','New Post created');
     }
 
     public function edit(Post $post)
@@ -111,7 +111,7 @@ class FeedController extends Controller
 
 
         $post->update($attributes);
-        return redirect('feed')->with('success', 'successfully Updated');
+        return redirect('feed')->with('success', 'Post Successfully Updated');
     }
 
     public function destroy(Post $post)
@@ -133,6 +133,6 @@ class FeedController extends Controller
                 $picture->delete();
             }
         }
-        return back();
+        return back()->with('success', 'Photo Deleted');
     }
 }

@@ -7,17 +7,14 @@
                     <div class="card mt-5 mb-5">
                         <div class="card-body">
 
-                            <h5 class="card-title mb-3 text-center">{{ Str::ucfirst($post->user->name)}}</h5>
-                            
+                            <h5 class="card-title mb-3 text-center">{{ Str::ucfirst($post->user->name) }}</h5>
+
                             <img src="{{ asset($post->user->profile_pic ?? asset('images/profile/dummy.jpg')) }}"
                                 alt="twbs" width="202" height="202" class="rounded-5 flex-shrink-0">
                             <p class="card-text fw-semibold text-center mt-5 ">{{ count($post->user->posts) }} Posts</p>
 
-
                         </div>
                     </div>
-
-
 
                 </div>
                 <a href="/admin" class="text-decoration-none">Go back to admin panel</a>
@@ -56,9 +53,6 @@
                             @enderror
                         </div>
 
-
-
-
                         {{-- add images --}}
 
                         <div class="input-group mb-3">
@@ -68,7 +62,6 @@
                             @enderror
                         </div>
 
-             
                         <div class="d-flex flex-row-reverse">
                             <button type="submit" class="btn btn-primary btn-block mb-4">Update </button>
                             <div class=" mx-3">
@@ -78,8 +71,6 @@
 
                         </div>
                     </form>
-
-
 
                 </div>
                 <!-- Submit button -->
@@ -118,5 +109,5 @@
         </main>
     </div>
     </div>
-
+    <x-flash />
 </x-layout>

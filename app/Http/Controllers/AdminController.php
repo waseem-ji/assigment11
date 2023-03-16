@@ -64,7 +64,7 @@ class AdminController extends Controller
         }
 
 
-        return back()->with('success', 'successfully Updated');
+        return back()->with('success', 'User Updated');
     }
 
 
@@ -109,13 +109,13 @@ class AdminController extends Controller
         $post->pictures()->saveMany($allPictures);
 
         $post->update($attributes);
-        return back()->with('success', 'successfully Updated');
+        return back()->with('success', 'Post Updated');
     }
 
     public function deletePost(Post $post)
     {
         $post->delete();
-        return back();
+        return back()->with('success','Post Deleted anmflks!!');
     }
 
     public function deletePostPicture(Post $post)
@@ -131,14 +131,14 @@ class AdminController extends Controller
                 $picture->delete();
             }
         }
-        return back();
+        return back()->with('success','Photo deleted ' );
     }
 
     public function deleteUser(User $user)
     {
         
         $user->delete();
-        return back();
+        return back()->with('success','User Deleted Succesfully');
 
     }
 }

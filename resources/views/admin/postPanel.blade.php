@@ -1,4 +1,5 @@
 <x-layout>
+
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -9,25 +10,18 @@
                             <h5 class="card-title">Users</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Total Active Users</h6>
                             <p class="card-text display-4 mx-2"> {{ $users_count }} </p>
-                            {{-- <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#allUsers" data-bs-parent="#panel-controller" aria-expanded="false"
-                                aria-controls="allUsers">
-                                View All Users
-                            </button> --}}
-                            <a href="/admin/users" class="card-link text-decoration-none">View all Users</a> 
+                           
+                            <a href="/admin/users" class="card-link text-decoration-none">View all Users</a>
 
                         </div>
                     </div>
-                    {{-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                <span></span>
-               
-              </h6> --}}
+                 
                     <div class="card ">
                         <div class="card-body">
                             <h5 class="card-title">Posts</h5>
                             <h6 class="card-subtitle mb-2 text-muted">Total Posts on site</h6>
                             <p class="card-text display-4 mx-2">{{ $posts_count }} </p>
-                            
+
                             {{-- <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#allPosts" data-bs-parent="#panel-controller" aria-expanded="false"
                                 aria-controls="allPosts">
@@ -58,19 +52,13 @@
                         <x-admin.users :users=$users />
                     </div> --}}
 
-           
                 </div>
                 <div class="">
 
-                    
-                    
                 </div>
-
-
-
 
             </main>
         </div>
     </div>
-
+    <x-flash />
 </x-layout>
