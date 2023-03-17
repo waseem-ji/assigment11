@@ -53,7 +53,9 @@ class AdminController extends Controller
         if (request()->hasFile('profile_pic')) {
             $image = request()->file('profile_pic');
 
-
+            request()->validate([
+                'profile_pic' => 'image'
+            ]);
 
             $filename = $image->store('public/images/profile');
 
@@ -97,6 +99,12 @@ class AdminController extends Controller
         $newPictures = [];
         if (request()->hasFile('new_images')) {
             $images = request()->file('new_images');
+
+            request()->validate([
+                'new_images' => 'image',
+                'new_images.*' => 'mimes:jpg,png,jpeg,gif,svg'
+            ]);
+
             foreach ($images as $image) {
                 $filename = $image->store('public/images');
                 $post->pictures()->create([
@@ -115,7 +123,7 @@ class AdminController extends Controller
     public function deletePost(Post $post)
     {
         $post->delete();
-        return back()->with('success','Post Deleted anmflks!!');
+        return back()->with('success', 'Post Deleted anmflks!!');
     }
 
     public function deletePostPicture(Post $post)
@@ -131,14 +139,12 @@ class AdminController extends Controller
                 $picture->delete();
             }
         }
-        return back()->with('success','Photo deleted ' );
+        return back()->with('success', 'Photo deleted ');
     }
 
     public function deleteUser(User $user)
     {
-        
         $user->delete();
-        return back()->with('success','User Deleted Succesfully');
-
+        return back()->with('success', 'User Deleted Succesfully');
     }
 }

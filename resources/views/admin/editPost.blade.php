@@ -57,7 +57,7 @@
 
                         <div class="input-group mb-3">
                             <input type="file" class="form-control" name="new_images[]" multiple max="5">
-                            @error('images')
+                            @error('new_images')
                                 <p class="text-danger"> {{ $message }}</p>
                             @enderror
                         </div>
@@ -89,7 +89,7 @@
                                         <img src="{{ asset($picture->url) }}" alt="Post Image" width="400px">
                                         <input type="hidden" name="delete_picture_{{ $picture->id }}" value="1">
                                         <button type="submit" class="ms-3 btn btn-danger"
-                                            onclick="return confirm('Are you sure you want to delete this item?');">Delete</button>
+                                            onclick="return confirm('Are you sure you want to delete this photo?');">Delete</button>
 
                                     </div>
                                     <div class="col d-flex align-items-center">

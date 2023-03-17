@@ -40,10 +40,10 @@ class FeedController extends Controller
         if ($request->hasFile('images')) {
             $images = $request->file('images');
 
-
-
-
-
+            request()->validate([
+                'images' => 'image',
+                'images.*' => 'mimes:jpg,png,jpeg,gif,svg'
+            ]);
 
             foreach ($images as $image) {
                 $filename = $image->store('public/images');
@@ -95,6 +95,12 @@ class FeedController extends Controller
         $newPictures = [];
         if (request()->hasFile('new_images')) {
             $images = request()->file('new_images');
+
+            request()->validate([
+                'images' => 'image',
+                'images.*' => 'mimes:jpg,png,jpeg,gif,svg'
+            ]);
+            
             foreach ($images as $image) {
                 $filename = $image->store('public/images');
                 $post->pictures()->create([

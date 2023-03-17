@@ -87,7 +87,7 @@
         <div class="row">
             <div class="col input-group mb-3">
             <input type="file" class="form-control" name="profile_pic">
-            @error('images')
+            @error('profile_pic')
                 <p class="text-danger"> {{$message}}</p>
             @enderror
 

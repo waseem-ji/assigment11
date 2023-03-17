@@ -22,7 +22,7 @@
 
         <div class="input-group mb-3">
             <input type="file" class="form-control" name="images[]" multiple max="5">
-            @error('images.*')
+            @error('images')
                 <p class="text-danger"> {{$message}}</p>
             @enderror
         </div>

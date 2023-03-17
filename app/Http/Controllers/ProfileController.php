@@ -31,8 +31,13 @@ class ProfileController extends Controller
         if (request()->hasFile('profile_pic')) {
             $image = request()->file('profile_pic');
 
+            request()->validate([
+                'profile_pic' => 'image'
+            ]);
 
 
+
+            // $filename = $image->store('public/images/profile');
             $filename = $image->store('public/images/profile');
 
             $attributes['profile_pic'] = substr($filename, 7);
